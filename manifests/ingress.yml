@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: vote-argo
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: vote-argo.k8s.devsecops.ink
+    http:
+      paths:
+      - backend:
+          serviceName: vote-argo
+          servicePort: 80
+        path: /
